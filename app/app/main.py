@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException, status, Response
-from .schemas import PredictRequest, PredictResponse
-from .model import FinanceModel
+from schemas import PredictRequest, PredictResponse
+from model import FinanceModel
 
 app = FastAPI(title="Finance Forecast API", version="0.1.0")
 model = FinanceModel()
