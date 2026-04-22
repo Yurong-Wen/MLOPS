@@ -1,4 +1,4 @@
-from scoring import Scorer
+from app.scoring import Scorer
 
 
 class FinanceModel:
@@ -7,6 +7,9 @@ class FinanceModel:
 
     def is_ready(self) -> bool:
         return self._scorer.is_ready()
+
+    def prediction_source(self) -> str:
+        return self._scorer.prediction_source()
 
     def predict(self, symbol: str, days: int) -> float:
         return self._scorer.predict(symbol=symbol, days=days)

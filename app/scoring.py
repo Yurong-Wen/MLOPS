@@ -1,7 +1,6 @@
 from pathlib import Path
-from typing import Optional
 
-MODEL_PATH = Path("model.pkl")
+MODEL_PATH = Path(__file__).with_name("model.pkl")
 
 
 class Scorer:
@@ -15,7 +14,10 @@ class Scorer:
                 self._model = None
 
     def is_ready(self) -> bool:
-        return True 
+        return self._model is not None
+
+    def prediction_source(self) -> str:
+        return "model" if self._model is not None else "fallback"
 
     def predict(self, symbol: str, days: int) -> float:
         if self._model is not None:

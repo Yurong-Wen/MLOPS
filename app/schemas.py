@@ -1,3 +1,5 @@
+from typing import Literal
+
 from pydantic import BaseModel, Field
 
 
@@ -8,4 +10,5 @@ class PredictRequest(BaseModel):
 
 class PredictResponse(BaseModel):
     predicted_price: float
+    prediction_source: Literal["model", "fallback"]
 
