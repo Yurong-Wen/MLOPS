@@ -1,1 +1,3 @@
 MLOPS/
+__pycache__/
+*.pyc
